@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0gdc878" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="7.2.0">
+  <bpmn:collaboration id="Collaboration_0clvvkr">
+    <bpmn:participant id="Participant_0vopggc" name="Cadastrar dados da Casa de Repouso" processRef="Process_1btjzpi" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1btjzpi" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_0fgund2" />
+    <bpmn:startEvent id="StartEvent_18x2irk" name="Cadastro Interno">
+      <bpmn:outgoing>Flow_0cr15z5</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0cr15z5" sourceRef="StartEvent_18x2irk" targetRef="Activity_03vpiml" />
+    <bpmn:sequenceFlow id="Flow_0q0zgiw" sourceRef="Activity_1nuhb1b" targetRef="Event_0vrae5x" />
+    <bpmn:userTask id="Activity_03vpiml" name="Cadastrar dados da Casa de Repouso">
+      <bpmn:incoming>Flow_0cr15z5</bpmn:incoming>
+      <bpmn:outgoing>Flow_100k9fo</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_100k9fo" sourceRef="Activity_03vpiml" targetRef="Activity_1nuhb1b" />
+    <bpmn:subProcess id="Activity_1nuhb1b" name="Cadastrar Casa de Repouso">
+      <bpmn:incoming>Flow_100k9fo</bpmn:incoming>
+      <bpmn:outgoing>Flow_0q0zgiw</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0qmi4qg">
+        <bpmn:targetRef>DataStoreReference_01gl3n6</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:subProcess>
+    <bpmn:dataStoreReference id="DataStoreReference_01gl3n6" name="C.C.R" />
+    <bpmn:endEvent id="Event_0vrae5x" name="Cadastro finalizado">
+      <bpmn:incoming>Flow_0q0zgiw</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0clvvkr">
+      <bpmndi:BPMNShape id="Participant_0vopggc_di" bpmnElement="Participant_0vopggc" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="760" height="370" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0q0zgiw_di" bpmnElement="Flow_0q0zgiw">
+        <di:waypoint x="680" y="240" />
+        <di:waypoint x="793" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cr15z5_di" bpmnElement="Flow_0cr15z5">
+        <di:waypoint x="268" y="240" />
+        <di:waypoint x="390" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_100k9fo_di" bpmnElement="Flow_100k9fo">
+        <di:waypoint x="490" y="240" />
+        <di:waypoint x="580" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_18x2irk">
+        <dc:Bounds x="232" y="222" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="211" y="265" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dsrcrx_di" bpmnElement="Activity_03vpiml">
+        <dc:Bounds x="390" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_01gl3n6_di" bpmnElement="DataStoreReference_01gl3n6">
+        <dc:Bounds x="685" y="115" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="697" y="172" width="27" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0vrae5x_di" bpmnElement="Event_0vrae5x">
+        <dc:Bounds x="793" y="222" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="789" y="265" width="46" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_107h44z_di" bpmnElement="Activity_1nuhb1b">
+        <dc:Bounds x="580" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0qmi4qg_di" bpmnElement="DataOutputAssociation_0qmi4qg">
+        <di:waypoint x="660" y="200" />
+        <di:waypoint x="687" y="165" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
